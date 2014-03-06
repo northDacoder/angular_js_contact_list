@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html data-ng-app="">
+<head>
+	<title>NG-CONTACTS</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+</head>
+
+<body> 	
+	<div data-role="page" data-theme="a" data-ng-controller="ContactsController" >
+	<div data-role="header" data-theme="a"><h1>RocketU Student/Teacher List</h1></div>
+	<br />
+	<input type="text" data-ng-model="name" /> {{ name }}
+	<br />
+	<ul data-role="listview" data-theme="b">
+		<li data-ng-repeat="cust in customers | filter:name | orderBy:'city'" > {{ cust.name }} - {{ cust.city }} </li>
+	</ul>
+</div>
+
+</body>
+
+<script type="text/javascript" src="angular.min.js"></script>
+<script>
+	function ContactsController($scope){
+		$scope.customers = [
+			{ name: 'John Ryan',  city: 'Palo Alto, California' },
+			{ name: 'Geoffrey Boss',  city: 'San Francisco, California'  },
+			{ name: 'Yash Saxena',  city: 'Waterloo, Canada'  },
+			{ name: 'Kevin Holloway',  city: 'New York City, New York'  },
+			{ name: 'NJ Schulz',   city: 'Oakland, California' },
+			{ name: 'Neil Aboshamaa',  city: 'San Francisco, California' },
+			{ name: 'Ty Nickel',   city: 'Sacramento, California' },
+			{ name: 'Sam Griffith',   city: 'San Francisco, California' },
+			{ name: 'Baylee Feore',  city: 'San Francisco, California' },
+			{ name: 'Rudy Mutter',  city: 'San Francisco, California'  },
+
+		];
+	}
+
+</script>
+
+
+</html>
